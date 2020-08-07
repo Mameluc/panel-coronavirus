@@ -1,9 +1,15 @@
 $( document ).ready(function() {
 
+    var country = "Argentina"
+
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+      }
+
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=Argentina",
+        "url": "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country="+country,
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
@@ -12,18 +18,19 @@ $( document ).ready(function() {
     }
     
     $.ajax(settings).done(function (response) {
-        console.log(response.data.covid19Stats[0])
 
         var infectadosHTML = document.getElementById("infectados");
         var fatalidadesHTML = document.getElementById("fatalidades");
         var recuperadosHTML = document.getElementById("recuperados");
-        var ultimaHTML = document.getElementById("ultima");
+        var ultimaHTML = document.getElementById("actualizacion");
+        var countryHTML = document.getElementById("pais")
     
         function update() {
-           infectadosHTML.innerText = response.data.covid19Stats[0].confirmed;
-           fatalidadesHTML.innerText = response.data.covid19Stats[0].deaths;
-           recuperadosHTML.innerText = response.data.covid19Stats[0].recovered;
+           infectadosHTML.innerText = formatNumber(response.data.covid19Stats[0].confirmed);
+           fatalidadesHTML.innerText = formatNumber(response.data.covid19Stats[0].deaths);
+           recuperadosHTML.innerText = formatNumber(response.data.covid19Stats[0].recovered);
            ultimaHTML.innerText = "Ultima actualización: " + response.data.covid19Stats[0].lastUpdate;
+           countryHTML.innerText = country
         }
 
         update();
