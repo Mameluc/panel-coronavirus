@@ -1,9 +1,10 @@
 # panel-coronavirus
 Panel con API Fetch sobre Corona Virus
+DEMO: https://conradocanas.github.io/panel-coronavirus/
 
 Para cambiar el valor "País" pueden editar la variable "country" en el archivo main.js (linea 3).
 
-Tecnologías utilizadas:
+Lenguajes y tecnologías utilizadas:
 - HTML
 - CSS
 - JavaScript
