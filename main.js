@@ -1,11 +1,14 @@
 $( document ).ready(function() {
 
+    // Variable de pais, modificar para cambiar el pais de referencia para obtener las estadisticas y cambiar el titulo en front
     var country = "Argentina"
 
+    // Agregar un punto (.) para formatear el numero de miles (ej: 1450005 > 145.005)
     function formatNumber(num) {
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
       }
 
+    // Llamada a la API de RapidAPI
     var settings = {
         "async": true,
         "crossDomain": true,
