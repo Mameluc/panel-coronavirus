@@ -1,5 +1,5 @@
 # panel-coronavirus
-##### DEMO: https://conradocanas.github.io/Panel-Covid19/
+##### DEMO: http://covid19.conradocanas.com.ar/
 
 #### Panel con API Fetch sobre Corona Virus
 
